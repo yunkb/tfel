@@ -317,14 +317,14 @@ if(enable-python-bindings)
     set(TFEL_TMP_BUILD_SHARED_LIBS ON)
     set(BUILD_SHARED_LIBS ON)
   endif(NOT DEFINED BUILD_SHARED_LIBS)
-  find_package(Boost 1.36.0 COMPONENTS
-    "python-py${PYTHON_VERSION_MAJOR}${PYTHON_VERSION_MINOR}")
+  find_package(Boost 1.71.0 REQUIRED COMPONENTS
+    "python${PYTHON_VERSION_MAJOR}${PYTHON_VERSION_MINOR}")
   if(Boost_PYTHON-PY${PYTHON_VERSION_MAJOR}${PYTHON_VERSION_MINOR}_FOUND)
     set(Boost_PYTHON_FOUND ON)
     set(Boost_PYTHON_LIBRARY "${Boost_PYTHON-PY${PYTHON_VERSION_MAJOR}${PYTHON_VERSION_MINOR}_LIBRARY}")
     if(enable-numpy-support)
-      find_package(Boost 1.36.0 COMPONENTS
-        "numpy-py${PYTHON_VERSION_MAJOR}${PYTHON_VERSION_MINOR}")
+      find_package(Boost 1.71.0 REQUIRED COMPONENTS
+        "numpy${PYTHON_VERSION_MAJOR}${PYTHON_VERSION_MINOR}")
       if(Boost_NUMPY-PY${PYTHON_VERSION_MAJOR}${PYTHON_VERSION_MINOR}_FOUND)
         set(Boost_NUMPY_FOUND ON)
         set(Boost_NUMPY_LIBRARY "${Boost_NUMPY-PY${PYTHON_VERSION_MAJOR}${PYTHON_VERSION_MINOR}_LIBRARY}")
@@ -335,13 +335,13 @@ if(enable-python-bindings)
   endif(Boost_PYTHON-PY${PYTHON_VERSION_MAJOR}${PYTHON_VERSION_MINOR}_FOUND)
   if(NOT Boost_PYTHON_FOUND)
     message(STATUS "Trying to find libboost_python${PYTHON_VERSION_MAJOR}${PYTHON_VERSION_MINOR}")
-    find_package(Boost 1.36.0 COMPONENTS
+    find_package(Boost 1.71.0  COMPONENTS
       "python${PYTHON_VERSION_MAJOR}${PYTHON_VERSION_MINOR}")
     if(Boost_PYTHON${PYTHON_VERSION_MAJOR}${PYTHON_VERSION_MINOR}_FOUND)
       set(Boost_PYTHON_FOUND ON)
       set(Boost_PYTHON_LIBRARY "${Boost_PYTHON${PYTHON_VERSION_MAJOR}${PYTHON_VERSION_MINOR}_LIBRARY}")
       if(enable-numpy-support)
-        find_package(Boost 1.36.0 COMPONENTS
+        find_package(Boost 1.71.0  COMPONENTS
          "numpy${PYTHON_VERSION_MAJOR}${PYTHON_VERSION_MINOR}")
         if(Boost_NUMPY${PYTHON_VERSION_MAJOR}${PYTHON_VERSION_MINOR}_FOUND)
           set(Boost_NUMPY_FOUND ON)
@@ -354,14 +354,14 @@ if(enable-python-bindings)
   endif(NOT Boost_PYTHON_FOUND)
   if(NOT Boost_PYTHON_FOUND)
     message(STATUS "Trying to find libboost_python-py${PYTHON_VERSION_MAJOR}")
-    find_package(Boost 1.36.0 COMPONENTS
-      "python-py${PYTHON_VERSION_MAJOR}")
+    find_package(Boost 1.71.0  COMPONENTS
+      "python${PYTHON_VERSION_MAJOR}")
     if(Boost_PYTHON-PY${PYTHON_VERSION_MAJOR}_FOUND)
       set(Boost_PYTHON_FOUND ON)
       set(Boost_PYTHON_LIBRARY "${Boost_PYTHON-PY${PYTHON_VERSION_MAJOR}_LIBRARY}")
       if(enable-numpy-support)
-	find_package(Boost 1.36.0 COMPONENTS
-	  "numpy-py${PYTHON_VERSION_MAJOR}")
+	find_package(Boost 1.71.0 COMPONENTS
+	  "numpy${PYTHON_VERSION_MAJOR}")
 	if(Boost_NUMPY-PY${PYTHON_VERSION_MAJOR}_FOUND)
           set(Boost_NUMPY_FOUND ON)
           set(Boost_NUMPY_LIBRARY "${Boost_NUMPY-PY${PYTHON_VERSION_MAJOR}_LIBRARY}")
@@ -373,13 +373,13 @@ if(enable-python-bindings)
   endif(NOT Boost_PYTHON_FOUND)
   if(NOT Boost_PYTHON_FOUND)
     message(STATUS "Trying to find libboost_python${PYTHON_VERSION_MAJOR}")
-    find_package(Boost 1.36.0 COMPONENTS
+    find_package(Boost 1.71.0 COMPONENTS
       "python${PYTHON_VERSION_MAJOR}")
     if(Boost_PYTHON${PYTHON_VERSION_MAJOR}_FOUND)
       set(Boost_PYTHON_FOUND ON)
       set(Boost_PYTHON_LIBRARY "${Boost_PYTHON${PYTHON_VERSION_MAJOR}_LIBRARY}")
       if(enable-numpy-support)
-        find_package(Boost 1.36.0 COMPONENTS
+        find_package(Boost 1.71.0 COMPONENTS
           "numpy${PYTHON_VERSION_MAJOR}")
         if(Boost_NUMPY${PYTHON_VERSION_MAJOR}_FOUND)
           set(Boost_NUMPY_FOUND ON)
@@ -392,10 +392,10 @@ if(enable-python-bindings)
   endif(NOT Boost_PYTHON_FOUND)
   if(NOT Boost_PYTHON_FOUND)
     message(STATUS "Trying to find libboost_python")
-    find_package(Boost 1.36.0 COMPONENTS python)
+    find_package(Boost 1.71.0 COMPONENTS python3)
     if(Boost_PYTHON_FOUND)
       if(enable-numpy-support)
-        find_package(Boost 1.36.0 COMPONENTS numpy)
+        find_package(Boost 1.71.0 COMPONENTS numpy36)
         if(Boost_NUMPY_FOUND)
           message(STATUS "  numpy found ${Boost_NUMPY_LIBRARY}")
         else(Boost_NUMPY_FOUND)
