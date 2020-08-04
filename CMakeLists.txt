@@ -25,7 +25,7 @@ endif(EXISTS "${CMAKE_BINARY_DIR}/conanbuildinfo.cmake")
 include(cmake/modules/tfel.cmake)
 # some variables for compatibility with autotools
 include(cmake/modules/autotools.cmake)
-
+project(tfel)
 #major and minor version
 tfel_project(3 4 "0-dev")
 set(PACKAGE_BUGREPORT "tfel-contact@cea.fr")
